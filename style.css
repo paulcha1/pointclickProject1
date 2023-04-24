@@ -1,0 +1,164 @@
+.titre {
+  text-align: center;
+  color: black;
+  margin-top: 75px;
+  margin-bottom: 25px;
+  font-size: 250%;
+}
+
+body {
+  background-color: grey;
+}
+
+#player img {
+  height: 200px;
+  width: auto;
+  position: fixed;
+  top: 310px;
+  left: 160px;
+}
+
+#computer img {
+  height: 200px;
+  width: auto;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+#hiddenButton1 {
+  display: none;
+  width: 125px;
+  height: 25px;
+  position: fixed;
+  bottom: 40%;
+  left: 45%;
+  z-index: 2;
+}
+
+#hiddenButton2 {
+  display: none;
+  width: 125px;
+  height: 25px;
+  position: fixed;
+  bottom: -5px;
+  left: 0;
+  z-index: 2;
+}
+
+#hiddenButton3 {
+  display: none;
+  width: 125px;
+  height: 25px;
+  position: fixed;
+  top: -10px;
+  right: 0;
+  z-index: 2;
+}
+
+#startButton {
+  display: none;
+  width: 225px;
+  height: 75px;
+  position: fixed;
+  top: 40%;
+  left: 42%;
+  background-color: forestgreen;
+  z-index: 2;
+}
+
+#showButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 25px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+#showButton2 {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 25px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+#frame {
+  background-color: transparent;
+  border-style: solid;
+  border-color: chartreuse;
+  border-radius: 10px;
+  width: 800px;
+  height: 700px;
+  position: fixed;
+  top: 10%;
+  left: 20%;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+#bulle {
+  background-color: beige;
+  border-radius: 10px;
+  position: fixed;
+  top: 250px;
+  left: 10px;
+  max-width: 300px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+#bulle:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 15px 15px 0 0;
+  border-color: beige transparent transparent transparent;
+  right: 10px;
+  bottom: -15px;
+}
+
+#bulleNPC {
+  background-color: beige;
+  border-radius: 10px;
+  position: fixed;
+  top: 250px;
+  right: 10px;
+  max-width: 300px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+#bulleNPC:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 15px 0 15px 15px;
+  border-color: beige transparent transparent transparent;
+  left: 10px;
+  top: -30px;
+  transform: scaleX(-1);
+  transform: scaleY(-1);
+}
+
+#invisibleCounter {
+  cursor: pointer;
+  opacity: 1;
+}
