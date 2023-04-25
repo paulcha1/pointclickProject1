@@ -3,11 +3,17 @@ const showButton2 = document.getElementById("showButton2");
 const hiddenButton2 = document.getElementById("hiddenButton2");
 const hiddenButton3 = document.getElementById("hiddenButton3");
 const startButton = document.getElementById("startButton");
+const startButton2 = document.getElementById("startButton2");
 const frame = document.getElementById("frame");
 const invisibleCounter = document.getElementById("invisibleCounter");
 const jailImg = document.createElement("img");
 const jailBreakImg = document.createElement("img");
-const player = document.createElement("img");
+const player = document.getElementById("player");
+const playerImage = player.querySelector("img");
+const playerContainer = document.querySelector(".player-container");
+const cookie = document.querySelector(".cookie");
+const chatBox = document.getElementById("bulle");
+const chatBoxNPC = document.getElementById("bulleNPC");
 
 showButton.addEventListener("click", function () {
   showButton.style.display = "none";
@@ -58,7 +64,7 @@ hiddenButton3.addEventListener("click", function () {
 
 startButton.addEventListener("click", function () {
   const chatBox = document.getElementById("bulle");
-  chatBox.innerText = "Let me see that game now";
+  chatBox.innerText = "Let me see that game now!";
   const chatBoxNPC = document.getElementById("bulleNPC");
   chatBoxNPC.innerText = "I WARNED YOU! NOW SUFFER MY CURSE! MUAHAHAHAHAHAHA";
   startButton.style.display = "none";
@@ -70,32 +76,32 @@ startButton.addEventListener("click", function () {
   jailImg.style.top = "50%";
   jailImg.style.left = "50%";
   jailImg.style.transform = "translate(-50%, -50%)";
-  player.src = "assets/stickman.png";
-  player.style.height = "200px";
-  player.style.width = "auto";
-  player.style.position = "absolute";
-  player.style.top = "50%";
-  player.style.left = "50%";
-  player.style.transform = "translate(-50%, -50%)";
+  playerImage.src = "assets/stickman.png";
+  playerImage.style.height = "200px";
+  playerImage.style.width = "auto";
+  playerImage.style.position = "absolute";
+  playerImage.style.top = "50%";
+  playerImage.style.left = "50%";
+  playerImage.style.transform = "translate(-50%, -50%)";
   frame.appendChild(jailImg);
-  const playerImage = document.getElementById("player");
-  playerImage.remove();
+
   frame.appendChild(player);
-  const chatBox = document.getElementById("bulle");
-  chatBox.innerText = "WTF??!?";
-  const chatBoxNPC = document.getElementById("bulleNPC");
-  chatBoxNPC.innerText = "You will never escape this place Muahahahahahaha! ";
+  setTimeout(() => {
+    const chatBox = document.getElementById("bulle");
+    chatBox.innerText = "WTF??!? I need to find a way to break out!";
+    const chatBoxNPC = document.getElementById("bulleNPC");
+    chatBoxNPC.innerText = "You will never escape this place Muahahahahahaha! ";
+  }, 5000);
 });
 
 let jailCounter = 0;
 invisibleCounter.innerText = `Counter: ${jailCounter}`;
 invisibleCounter.addEventListener("click", function () {
   jailBreakImg.src = "assets/openbar.png";
-  if (jailCounter <= 2) {
+  if (jailCounter <= 4) {
     jailCounter++;
     invisibleCounter.innerText = `Counter: ${jailCounter}`;
   } else {
-    console.log(frame);
     frame.removeChild(jailImg);
     jailBreakImg.style.width = "75%";
     jailBreakImg.style.height = "100%";
@@ -104,9 +110,82 @@ invisibleCounter.addEventListener("click", function () {
     jailBreakImg.style.left = "50%";
     jailBreakImg.style.transform = "translate(-50%, -50%)";
     frame.appendChild(jailBreakImg);
+    setTimeout(() => {
+      frame.removeChild(jailBreakImg);
+    }, 1000);
+    setTimeout(() => {
+      chatBox.innerText = "now what?";
+
+      startButton2.style.display = "block";
+      playerContainer.appendChild(playerImage);
+      playerImage.style.left = "60px";
+      playerImage.style.top = "390px";
+    }, 3000);
+    setTimeout(() => {
+      chatBoxNPC.innerText = "hum... welcome to the game... i guess";
+    }, 5000);
     const chatBox = document.getElementById("bulle");
-    chatBox.innerText = "I came in like a wreckiiiiiin ball";
+    chatBox.innerText = "You underestimated my power";
     const chatBoxNPC = document.getElementById("bulleNPC");
     chatBoxNPC.innerText = "GRRRRrrrrrr";
+    invisibleCounter.style.display = "none";
+  }
+});
+
+const button = document.getElementById("showButton2");
+button.addEventListener("click", changeTitle);
+
+function changeTitle() {
+  const titre = document.querySelector(".titre");
+  const text = "Is this... a game??";
+  const interval = 50;
+  const delay = 500;
+  let i = 0;
+  let size = 24;
+
+  const change = () => {
+    if (i >= text.length) return;
+    titre.textContent = text.substr(0, i + 1);
+    titre.style.fontSize = `${size}px`;
+    titre.style.color = "black";
+    titre.style.fontFamily = "Impact";
+    i++;
+    size++;
+    setTimeout(change, interval);
+  };
+
+  setTimeout(change, delay);
+}
+let cookieCounter = 0;
+const span = document.querySelector("span");
+const cookieElements = document.querySelectorAll(".cookie");
+
+startButton2.addEventListener("click", function () {
+  startButton2.style.display = "none";
+  cookieElements.forEach(function (cookieElement) {
+    cookieElement.style.display = "block";
+  });
+
+  if (cookie.style.display === "block") {
+    cookie.addEventListener("click", cookieCounterF);
+  }
+  function cookieCounterF() {
+    if (cookieCounter < 9) {
+      console.log(chatBox.innerText);
+      cookieCounter++;
+      if (cookieCounter === 5) {
+        chatBox.innerText = "is this really it? a lame cookie clicker??";
+        chatBoxNPC.innerText = "Almost there!";
+      } else if (cookieCounter === 9) {
+        chatBoxNPC.innerText =
+          "Congratz! it's time to stop now :) hope you enjoyed this great game, this way out :";
+      }
+    }
+
+    cookie.style.width = "35%";
+    setTimeout(() => {
+      cookie.style.width = "50%";
+    }, 100);
+    span.innerText = `${cookieCounter}`;
   }
 });

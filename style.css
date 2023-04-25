@@ -1,21 +1,45 @@
 .titre {
+  display: flex;
+  position: relative;
   text-align: center;
   color: black;
   margin-top: 75px;
   margin-bottom: 25px;
   font-size: 250%;
+  transition: all 0.5s ease-in-out;
+  z-index: 3;
+  justify-content: center;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  justify-content: flex-end;
+}
+
+.cookie {
+  display: none;
+  height: auto;
 }
 
 body {
-  background-color: grey;
+  background: rgb(85, 111, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(85, 111, 244, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 #player img {
   height: 200px;
   width: auto;
-  position: fixed;
-  top: 310px;
-  left: 160px;
+  display: block;
+}
+
+#player {
+  display: block;
 }
 
 #computer img {
@@ -67,6 +91,17 @@ body {
   z-index: 2;
 }
 
+#startButton2 {
+  display: none;
+  width: 225px;
+  height: 75px;
+  position: fixed;
+  top: 40%;
+  left: 42%;
+  background-color: forestgreen;
+  z-index: 2;
+}
+
 #showButton {
   display: flex;
   align-items: center;
@@ -100,7 +135,7 @@ body {
 #frame {
   background-color: transparent;
   border-style: solid;
-  border-color: chartreuse;
+  border-color: ;
   border-radius: 10px;
   width: 800px;
   height: 700px;
@@ -110,6 +145,10 @@ body {
   padding: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   z-index: 1;
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #bulle {
@@ -159,6 +198,13 @@ body {
 }
 
 #invisibleCounter {
-  cursor: pointer;
-  opacity: 1;
+  display: block;
+  cursor: grab;
+  opacity: 0;
+  z-index: 4;
+  position: fixed;
+  right: 40%;
+  bottom: 10%;
+  width: 400px;
+  height: 200px;
 }
