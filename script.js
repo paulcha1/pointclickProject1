@@ -14,6 +14,14 @@ const playerContainer = document.querySelector(".player-container");
 const cookie = document.querySelector(".cookie");
 const chatBox = document.getElementById("bulle");
 const chatBoxNPC = document.getElementById("bulleNPC");
+let cookieBgColor = 260;
+let cookieLuminosity = 100;
+const badEndButton = document.getElementById("badEndButton");
+let cookieCounter = 0;
+const span = document.querySelector("span");
+const cookieElements = document.querySelectorAll(".cookie");
+const winImg = document.getElementById("frameImg3");
+const winImg2 = document.getElementById("frameImg4");
 
 showButton.addEventListener("click", function () {
   showButton.style.display = "none";
@@ -156,9 +164,6 @@ function changeTitle() {
 
   setTimeout(change, delay);
 }
-let cookieCounter = 0;
-const span = document.querySelector("span");
-const cookieElements = document.querySelectorAll(".cookie");
 
 startButton2.addEventListener("click", function () {
   startButton2.style.display = "none";
@@ -169,23 +174,122 @@ startButton2.addEventListener("click", function () {
   if (cookie.style.display === "block") {
     cookie.addEventListener("click", cookieCounterF);
   }
+
   function cookieCounterF() {
-    if (cookieCounter < 9) {
-      console.log(chatBox.innerText);
+    if (cookieCounter < 100) {
       cookieCounter++;
-      if (cookieCounter === 5) {
+
+      if (cookieCounter === 2) {
         chatBox.innerText = "is this really it? a lame cookie clicker??";
         chatBoxNPC.innerText = "Almost there!";
       } else if (cookieCounter === 9) {
         chatBoxNPC.innerText =
           "Congratz! it's time to stop now :) hope you enjoyed this great game, this way out :";
+        badEndButton.style.display = "block";
+        chatBox.innerText =
+          "hmmm... i dont know... there's something i dont trust about browser and cookies...";
+      }
+
+      if (cookieCounter >= 10 && cookieCounter <= 19) {
+        const redValue = 255;
+        const greenValue = 0;
+        const blueValue = Math.floor((cookieCounter - 10) * 12.75) + 133;
+        frame.style.backgroundColor = `hsl(${cookieBgColor}, 70%, ${cookieLuminosity}%)`;
+        cookieBgColor += 10;
+
+        cookieLuminosity -= 5;
+        if (cookieBgColor >= 360) {
+          cookieBgColor = 360;
+          cookieLuminosity = 50;
+        }
+      }
+
+      cookie.style.width = "35%";
+      setTimeout(() => {
+        cookie.style.width = "50%";
+      }, 100);
+      if (cookieCounter < 10) {
+        span.innerText = `${1990 + cookieCounter}`;
+      } else {
+        span.innerText = "1999";
+      }
+
+      if (cookieCounter === 20) {
+        chatBox.innerText = "What the... why is everything becoming red?";
+        chatBoxNPC.innerText =
+          "if you click one more time; i will cease to exist !!! I BEG YOU! DONT";
+      }
+
+      if (cookieCounter === 21) {
+        cookie.style.display = "none";
+        winImg.style.display = "block";
+        winImg.style.width = "100%";
+        winImg.style.height = "100%";
+        setTimeout(() => {
+          winImg.style.display = "none";
+          span.innerText = "2000";
+          winImg2.style.display = "block";
+          winImg2.style.width = "100%";
+          winImg2.style.height = "100%";
+          changeTitle3();
+          chatBoxNPC.innerText =
+            "The only weakness of computers... the number 2000..";
+        }, 2500);
       }
     }
-
-    cookie.style.width = "35%";
-    setTimeout(() => {
-      cookie.style.width = "50%";
-    }, 100);
-    span.innerText = `${cookieCounter}`;
   }
 });
+
+const frameImg2 = document.getElementById("frameImg2");
+
+badEndButton.addEventListener("click", () => {
+  cookieElements.forEach((cookie) => {
+    cookie.style.display = "none";
+  });
+  frameImg2.style.display = "block";
+  frameImg2.style.width = "100%";
+  frameImg2.style.height = "100%";
+  changeTitle2();
+});
+
+function changeTitle2() {
+  const titre = document.querySelector(".titre");
+  const text = "YOU LOST GITGUD N00B LUL";
+  const interval = 50;
+  const delay = 500;
+  let i = 0;
+  let size = 34;
+
+  const change = () => {
+    if (i >= text.length) return;
+    titre.textContent = text.substr(0, i + 1);
+    titre.style.fontSize = `${size}px`;
+    titre.style.color = "white";
+    titre.style.fontFamily = "Impact";
+    i++;
+    size++;
+    setTimeout(change, interval);
+  };
+  change();
+}
+
+function changeTitle3() {
+  const titre = document.querySelector(".titre");
+  const text = "YOU DID SOMETHING";
+  const interval = 50;
+  const delay = 500;
+  let i = 0;
+  let size = 40;
+
+  const change = () => {
+    if (i >= text.length) return;
+    titre.textContent = text.substr(0, i + 1);
+    titre.style.fontSize = `${size}px`;
+    titre.style.color = "gold";
+    titre.style.fontFamily = "Impact";
+    i++;
+    size++;
+    setTimeout(change, interval);
+  };
+  change();
+}
