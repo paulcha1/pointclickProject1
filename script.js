@@ -225,6 +225,7 @@ startButton2.addEventListener("click", function () {
         winImg.style.display = "block";
         winImg.style.width = "100%";
         winImg.style.height = "100%";
+        badEndButton.style.display = "none";
         setTimeout(() => {
           winImg.style.display = "none";
           span.innerText = "2000";
@@ -250,6 +251,7 @@ badEndButton.addEventListener("click", () => {
   frameImg2.style.width = "100%";
   frameImg2.style.height = "100%";
   changeTitle2();
+  badEndButton.style.display = "none";
 });
 
 function changeTitle2() {
@@ -275,7 +277,7 @@ function changeTitle2() {
 
 function changeTitle3() {
   const titre = document.querySelector(".titre");
-  const text = "YOU DID SOMETHING";
+  const text = "YOU DID SOMETHING!\nbut your parents still dont love you.";
   const interval = 50;
   const delay = 500;
   let i = 0;
@@ -283,7 +285,8 @@ function changeTitle3() {
 
   const change = () => {
     if (i >= text.length) return;
-    titre.textContent = text.substr(0, i + 1);
+    titre.textContent =
+      text.slice(0, i + 1) + (text[i + 1] === "\n" ? "\n" : "");
     titre.style.fontSize = `${size}px`;
     titre.style.color = "gold";
     titre.style.fontFamily = "Impact";

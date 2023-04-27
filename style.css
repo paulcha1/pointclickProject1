@@ -56,8 +56,42 @@ body {
   height: 25px;
   position: fixed;
   bottom: 40%;
-  left: 45%;
+  left: 42%;
   z-index: 2;
+  cursor: not-allowed;
+  display: none;
+  width: 225px;
+  height: 75px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#hiddenButton1::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 25px;
+  border-color: transparent transparent transparent #fff;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#hiddenButton1 span {
+  vertical-align: middle;
+}
+
+.hiddenButton1:hover {
+  background-color: #3e8e41;
 }
 
 #hiddenButton2 {
@@ -65,9 +99,43 @@ body {
   width: 125px;
   height: 25px;
   position: fixed;
-  bottom: -5px;
+  bottom: -39px;
   left: 0;
   z-index: 2;
+  cursor: not-allowed;
+  display: none;
+  width: 225px;
+  height: 75px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#hiddenButton2::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 25px;
+  border-color: transparent transparent transparent #fff;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#hiddenButton2 span {
+  vertical-align: middle;
+}
+
+.hiddenButton2:hover {
+  background-color: #3e8e41;
 }
 
 #hiddenButton3 {
@@ -75,19 +143,53 @@ body {
   width: 125px;
   height: 25px;
   position: fixed;
-  top: -10px;
+  top: -40px;
   right: 0;
   z-index: 2;
-}
-
-#startButton {
+  cursor: not-allowed;
   display: none;
   width: 225px;
   height: 75px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#hiddenButton3::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 25px;
+  border-color: transparent transparent transparent #fff;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#hiddenButton3 span {
+  vertical-align: middle;
+}
+
+.hiddenButton3:hover {
+  background-color: #3e8e41;
+}
+
+#startButton {
   position: fixed;
   top: 40%;
   left: 42%;
   z-index: 2;
+  display: none;
+  width: 225px;
+  height: 75px;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -176,27 +278,26 @@ body {
   background-color: #3e8e41;
 }
 
-#showButton2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 125px;
-  height: 25px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
+#showButton {
+  border-radius: 9px;
+  background-color: beige;
+  position: fixed;
+  left: 98px;
+  top: 298px;
+  width: 100px;
+  height: 40px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-family: Arial black;
+}
+
+#showButton:hover {
+  border-color: #ffcc00;
 }
 
 #showButton2 {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 125px;
-  height: 25px;
   margin: auto;
   position: absolute;
   top: 0;
@@ -204,6 +305,16 @@ body {
   bottom: 0;
   right: 0;
   z-index: 2;
+  width: 100px;
+  height: 40px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-family: Arial black;
+  border-radius: 9px;
+  background-color: beige;
+}
+
+#showButton2:hover {
+  border-color: #ffcc00;
 }
 
 #frame {
@@ -272,7 +383,7 @@ body {
 
 #invisibleCounter {
   display: block;
-  cursor: grab;
+  cursor: url("./assets/saw32.png"), auto;
   opacity: 0;
   z-index: 4;
   position: fixed;
