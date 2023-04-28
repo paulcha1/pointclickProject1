@@ -1,8 +1,6 @@
 # pointclickProject1
 
-readme
-
-Why I choose this game? :
+<h1>Why I choose this game? :</h1>
 
 seemed simple enough that i could do it with things we learned in class during these past 2/3 weeks and allowed me to train using DOM and CSS + i like this kind of humor
 
