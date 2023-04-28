@@ -1,5 +1,6 @@
 const showButton = document.getElementById("showButton");
 const showButton2 = document.getElementById("showButton2");
+const hiddenButton1 = document.getElementById("hiddenButton1");
 const hiddenButton2 = document.getElementById("hiddenButton2");
 const hiddenButton3 = document.getElementById("hiddenButton3");
 const startButton = document.getElementById("startButton");
@@ -25,82 +26,84 @@ const winImg2 = document.getElementById("frameImg4");
 
 showButton.addEventListener("click", function () {
   showButton.style.display = "none";
-  showButton2.style.display = "block";
-  const chatBox = document.getElementById("bulle");
-  chatBox.innerText = "Hello! anyone's here? is this... A GAME???";
-  const chatBoxNPC = document.getElementById("bulleNPC");
-  chatBoxNPC.innerText = "NONONONNONONO!! NO GAMES HERE! Shoo! go away!!";
+  chatBox.innerText = "Hello! anyone's here? Is this... A VIDEOGAME???";
+  setTimeout(function () {
+    showButton2.style.display = "block";
+    chatBoxNPC.innerText = "NONONONNONONO!! NO GAMES HERE! Shoo! go away!!";
+  }, 2000);
 });
 
 showButton2.addEventListener("click", function () {
   showButton2.style.display = "none";
-  const chatBox = document.getElementById("bulle");
-  chatBox.innerText = "Then why is there a title and a start button ??!";
-  const chatBoxNPC = document.getElementById("bulleNPC");
-  chatBoxNPC.innerText = "DO NOT CLICK THAT BUTTON!";
-  hiddenButton1.style.display = "block";
+  chatBox.innerText = "Then why is there a title and a start button here??!";
+  chatBoxNPC.innerText = "...";
+  setTimeout(function () {
+    chatBoxNPC.innerText =
+      "DO NOT CLICK THAT BUTTON! Besides it's not even clickable ha!";
+    hiddenButton1.style.display = "block";
+  }, 2000);
 });
 
 hiddenButton1.addEventListener("click", function () {
   hiddenButton1.style.display = "none";
   hiddenButton2.style.display = "block";
-  const chatBox = document.getElementById("bulle");
+
   chatBox.innerText = "... i clicked anyway. Now what?";
-  const chatBoxNPC = document.getElementById("bulleNPC");
-  chatBoxNPC.innerText =
-    "see? nothing's happening. as i said, no game in here!";
+  chatBoxNPC.innerText = "...";
+  setTimeout(function () {
+    chatBoxNPC.innerText =
+      "See? Nothing's happening. Just like i said, no game in here!";
+  }, 2000);
 });
 
 hiddenButton2.addEventListener("click", function () {
-  const chatBox = document.getElementById("bulle");
   chatBox.innerText = "why is the button moving? Are you hiding it?";
-  const chatBoxNPC = document.getElementById("bulleNPC");
-  chatBoxNPC.innerText =
-    "Leave now or you will suffer the eternal curse of... hum.. eternal... cursedom!";
-  hiddenButton2.style.display = "none";
-  hiddenButton3.style.display = "block";
+  chatBoxNPC.innerText = "...";
+  setTimeout(function () {
+    chatBoxNPC.innerText =
+      "LEAVE! Leave now or you will suffer the eternal curse of... hum.. eternal... cursedom!";
+    hiddenButton2.style.display = "none";
+    hiddenButton3.style.display = "block";
+  }, 2000);
 });
 
 hiddenButton3.addEventListener("click", function () {
-  const chatBox = document.getElementById("bulle");
   chatBox.innerText = "I'm gonna click that button even harder!!!";
-  const chatBoxNPC = document.getElementById("bulleNPC");
-  chatBoxNPC.innerText = "Noooooooooooooooooooooooo!";
+  chatBoxNPC.innerText = "...!";
   hiddenButton3.style.display = "none";
   startButton.style.display = "block";
+  setTimeout(function () {
+    chatBoxNPC.innerText = "Noooooooooooooooooooooooo!";
+  }, 2000);
 });
 
 startButton.addEventListener("click", function () {
-  const chatBox = document.getElementById("bulle");
   chatBox.innerText = "Let me see that game now!";
-  const chatBoxNPC = document.getElementById("bulleNPC");
-  chatBoxNPC.innerText = "I WARNED YOU! NOW SUFFER MY CURSE! MUAHAHAHAHAHAHA";
   startButton.style.display = "none";
-});
-
-startButton.addEventListener("click", function () {
-  jailImg.src = "assets/jail-bars-36557.png";
-  jailImg.style.position = "absolute";
-  jailImg.style.top = "50%";
-  jailImg.style.left = "50%";
-  jailImg.style.transform = "translate(-50%, -50%)";
-  playerImage.src = "assets/stickman.png";
-  playerImage.style.height = "200px";
-  playerImage.style.width = "auto";
-  playerImage.style.position = "absolute";
-  playerImage.style.top = "50%";
-  playerImage.style.left = "50%";
-  playerImage.style.transform = "translate(-50%, -50%)";
-  frame.appendChild(jailImg);
-
-  frame.appendChild(player);
-  setTimeout(() => {
-    const chatBox = document.getElementById("bulle");
+  setTimeout(function () {
+    chatBoxNPC.innerText = "I WARNED YOU! NOW SUFFER MY CURSE! MUAHAHAHAHAHAHA";
+    jailImg.src = "assets/jail-bars-36557.png";
+    jailImg.style.position = "absolute";
+    jailImg.style.top = "50%";
+    jailImg.style.left = "50%";
+    jailImg.style.transform = "translate(-50%, -50%)";
+    playerImage.src = "assets/stickman.png";
+    playerImage.style.height = "200px";
+    playerImage.style.width = "auto";
+    playerImage.style.position = "absolute";
+    playerImage.style.top = "50%";
+    playerImage.style.left = "50%";
+    playerImage.style.transform = "translate(-50%, -50%)";
+    frame.appendChild(jailImg);
+    frame.appendChild(player);
+  }, 2000);
+  setTimeout(function () {
     chatBox.innerText = "WTF??!? I need to find a way to break out!";
-    const chatBoxNPC = document.getElementById("bulleNPC");
     chatBoxNPC.innerText = "You will never escape this place Muahahahahahaha! ";
-  }, 5000);
+  }, 6000);
 });
+
+startButton.addEventListener("click", function () {});
 
 let jailCounter = 0;
 invisibleCounter.innerText = `Counter: ${jailCounter}`;
@@ -122,19 +125,17 @@ invisibleCounter.addEventListener("click", function () {
       frame.removeChild(jailBreakImg);
     }, 1000);
     setTimeout(() => {
-      chatBox.innerText = "now what?";
-
+      chatBox.innerText = "What now?";
       startButton2.style.display = "block";
       playerContainer.appendChild(playerImage);
       playerImage.style.left = "60px";
       playerImage.style.top = "390px";
     }, 3000);
     setTimeout(() => {
-      chatBoxNPC.innerText = "hum... welcome to the game... i guess";
+      chatBoxNPC.innerText =
+        "Hum... Welcome to the game... I guess... Simply click on the cookie 10 times, and you win! Voila!";
     }, 5000);
-    const chatBox = document.getElementById("bulle");
     chatBox.innerText = "You underestimated my power";
-    const chatBoxNPC = document.getElementById("bulleNPC");
     chatBoxNPC.innerText = "GRRRRrrrrrr";
     invisibleCounter.style.display = "none";
   }
@@ -145,11 +146,11 @@ button.addEventListener("click", changeTitle);
 
 function changeTitle() {
   const titre = document.querySelector(".titre");
-  const text = "Is this... a game??";
+  const text = "IS THIS... A GAME??";
   const interval = 50;
   const delay = 500;
   let i = 0;
-  let size = 24;
+  let size = 34;
 
   const change = () => {
     if (i >= text.length) return;
@@ -187,7 +188,7 @@ startButton2.addEventListener("click", function () {
           "Congratz! it's time to stop now :) hope you enjoyed this great game, this way out :";
         badEndButton.style.display = "block";
         chatBox.innerText =
-          "hmmm... i dont know... there's something i dont trust about browser and cookies...";
+          "Hmmm... i dont know... there's something I DO NOT TRUST about browser and cookies...";
       }
 
       if (cookieCounter >= 10 && cookieCounter <= 19) {
@@ -217,9 +218,8 @@ startButton2.addEventListener("click", function () {
       if (cookieCounter === 20) {
         chatBox.innerText = "What the... why is everything becoming red?";
         chatBoxNPC.innerText =
-          "if you click one more time; i will cease to exist !!! I BEG YOU! DONT please just CLICK THAT BUTTON";
+          "If you click one more time I will cease to exist !!! I BEG YOU! DON'T please just CLICK THAT BUTTON instead";
       }
-
       if (cookieCounter === 21) {
         cookie.style.display = "none";
         winImg.style.display = "block";
@@ -234,7 +234,7 @@ startButton2.addEventListener("click", function () {
           winImg2.style.height = "100%";
           changeTitle3();
           chatBoxNPC.innerText =
-            "The only weakness of computers... the number 2000..";
+            "The only weakness of computers... The number 2000..";
         }, 2500);
       }
     }
@@ -252,7 +252,7 @@ badEndButton.addEventListener("click", () => {
   frameImg2.style.height = "100%";
   changeTitle2();
   badEndButton.style.display = "none";
-  chatBoxNPC.innerText = "Trusting Skynet ? you ignorant fool";
+  chatBoxNPC.innerText = "Trusting Skynet? HAHA you ignorant fool";
 });
 
 function changeTitle2() {
@@ -278,16 +278,16 @@ function changeTitle2() {
 
 function changeTitle3() {
   const titre = document.querySelector(".titre");
-  const text = "YOU DID SOMETHING!\nbut your parents still dont love you.";
+  const text = "YOU DID SOMETHING!<br>but your parents still dont love you.";
   const interval = 50;
   const delay = 500;
   let i = 0;
-  let size = 40;
+  let size = 35;
 
   const change = () => {
     if (i >= text.length) return;
-    titre.textContent =
-      text.slice(0, i + 1) + (text[i + 1] === "\n" ? "\n" : "");
+    titre.innerHTML =
+      text.slice(0, i + 1) + (text[i + 1] === "<br>" ? "<br>" : "");
     titre.style.fontSize = `${size}px`;
     titre.style.color = "gold";
     titre.style.fontFamily = "Impact";

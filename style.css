@@ -9,6 +9,8 @@
   transition: all 0.5s ease-in-out;
   z-index: 3;
   justify-content: center;
+  text-shadow: 2px 2px 0 #ccc;
+  color: teal;
 }
 
 .player-container {
