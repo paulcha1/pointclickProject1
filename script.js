@@ -217,7 +217,7 @@ startButton2.addEventListener("click", function () {
       if (cookieCounter === 20) {
         chatBox.innerText = "What the... why is everything becoming red?";
         chatBoxNPC.innerText =
-          "if you click one more time; i will cease to exist !!! I BEG YOU! DONT";
+          "if you click one more time; i will cease to exist !!! I BEG YOU! DONT please just CLICK THAT BUTTON";
       }
 
       if (cookieCounter === 21) {
@@ -252,6 +252,7 @@ badEndButton.addEventListener("click", () => {
   frameImg2.style.height = "100%";
   changeTitle2();
   badEndButton.style.display = "none";
+  chatBoxNPC.innerText = "Trusting Skynet ? you ignorant fool";
 });
 
 function changeTitle2() {
