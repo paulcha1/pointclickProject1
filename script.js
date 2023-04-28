@@ -252,7 +252,8 @@ badEndButton.addEventListener("click", () => {
   frameImg2.style.height = "100%";
   changeTitle2();
   badEndButton.style.display = "none";
-  chatBoxNPC.innerText = "Trusting Skynet? HAHA you ignorant fool";
+  chatBoxNPC.innerText =
+    "Trusting Skynet? HAHA you ignorant fool you gave me access to the internet";
 });
 
 function changeTitle2() {
@@ -297,3 +298,32 @@ function changeTitle3() {
   };
   change();
 }
+
+const resetButton = document.getElementById("resetButton");
+
+resetButton.addEventListener("click", function () {
+  chatBox.innerText = "...";
+  chatBoxNPC.innerText = "...";
+  showButton.style.display = "block";
+  showButton2.style.display = "none";
+  hiddenButton1.style.display = "none";
+  hiddenButton2.style.display = "none";
+  hiddenButton3.style.display = "none";
+  startButton.style.display = "none";
+  startButton2.style.display = "none";
+  jailCounter = 0;
+  invisibleCounter.innerText = `Counter: ${jailCounter}`;
+  cookieCounter = 0;
+  span.innerText = cookieCounter;
+  playerImage.style.left = "300px";
+  playerImage.style.top = "190px";
+  playerContainer.removeChild(playerImage);
+  chatBox.innerText = "";
+  chatBoxNPC.innerText = "";
+  frame.removeChild(jailImg);
+  frame.removeChild(winImg);
+  frame.removeChild(winImg2);
+  cookieElements.forEach(function (cookie) {
+    cookie.style.backgroundColor = `hsl(${cookieBgColor}, 50%, ${cookieLuminosity}%)`;
+  });
+});
